@@ -1,0 +1,101 @@
+온프레미스 (On-Premise)
+개념: 기업이 자체적으로 서버, 네트워크, 스토리지를 구축하여 운영하는 방식
+
+클라우드 (Cloud)
+개념: 클라우드 서비스 제공업체(AWS, Azure, GCP 등)가 IT 인프라를 제공하고, 
+기업은 이를 임대해서 사용하는 방식
+
+EC2 배포
+EC2는 AWS의 가상 서버(VM) 서비스로, 직접 OS를 설치하고 애플리케이션을 배포하는 방식
+사용자가 직접 애플리케이션을 설치, 업데이트, 로드 밸런싱, 확장 등을 관리해야 함
+전통적인 서버 운영 방식과 유사 (예: 웹 서버, DB 서버 등 직접 관리)
+
+쿠버네티스(Kubernetes) 배포
+컨테이너 기반 애플리케이션을 자동으로 배포, 확장, 관리하는 컨테이너 오케스트레이션 도구
+여러 개의 컨테이너를 클러스터로 묶어 자동화된 방식으로 실행
+AWS에서는 EKS(Amazon Elastic Kubernetes Service) 를 통해 쉽게 쿠버네티스 클러스터를 사용할 수 있음
+애플리케이션의 배포, 업데이트, 확장, 장애 복구를 자동으로 처리할 수 있음
+
+클러스터(Cluster)는 여러 개의 컴퓨터(서버)나 노드를 
+하나의 시스템처럼 동작하도록 묶어 놓은 구조를 의미한다.
+
+노드(Node): 클러스터를 구성하는 개별 컴퓨터 또는 서버
+마스터 노드(Master Node): 클러스터를 제어하고 노드를 관리하는 역할
+워커 노드(Worker Node): 실제 작업을 수행하는 서버
+
+쿠버네티스 클러스터는 컨테이너를 자동으로 배포/관리
+EC2 클러스터는 여러 개의 EC2 인스턴스를 활용하여 트래픽 분산 및 연산 수행
+
+vm(가상머신): 물리서버를 가상형태로 만들어 동작하는 것
+클라우드 네이티브의 특성 확장성 탄력성 민첩성 내결함성
+
+깃허브 액션,젠킨스 CI/CD(Continuous Integration/Continuous Deployment) 자동화 도구
+도커 컴포즈(Docker Compose)란? 여러 개의 Docker 컨테이너를 한 번에 관리할 수 있는 도구
+
+CI 개발자들이 코드를 자주 변경하고 이를 자동으로 통합, 빌드 및 테스트하는 프로세스
+CD CI 이후의 단계로, 애플리케이션을 실제 운영 환경(Production)으로 배포하는 과정
+
+Continuous Delivery (지속적 제공)
+자동 배포 준비까지 진행되지만, 실제 배포는 수동 승인 후 진행
+배포 전, QA 팀이 최종 검토 후 배포하는 방식
+예: AWS CodePipeline, ArgoCD
+
+Continuous Deployment (지속적 배포)
+테스트 통과 후 자동으로 운영 환경(Production)에 배포
+별도의 승인 과정 없이 자동 배포 (운영팀 개입 불필요)
+예: Kubernetes 자동 배포
+
+모놀리식에서는 REST API가 필수가 아님 → 같은 애플리케이션 내에서 메서드 호출로 충분
+
+쿠버네티스는 OS특징을 가지나 OS가 아님 
+쿠버네티스는 마이크로서비스 운영에 최적화된 도구지만, 모놀리식도 실행할 수는 있다
+
+시스템의 요구사항에 따라 모놀리식 구조와 마이크로 서비스 구조를 선택할 수 있다
+
+Inner Architecture (내부 아키텍처)
+애플리케이션 내부의 비즈니스 로직 설계
+사용 기술	Spring Boot, Express.js, Django 등
+
+Outer Architecture (외부 아키텍처)
+애플리케이션이 외부와 연결되는 방식
+Kafka, RabbitMQ, GraphQL, gRPC, AWS Lambda
+
+DDD(Domain-Driven Design, 도메인 주도 설계)는 비즈니스 도메인(업무 로직)을 중심으로 
+소프트웨어를 설계하는 방법론이다. 
+
+리눅스 커널은 운영체제의 핵심으로 하드웨어와 소프트웨어를 연결하고, 
+프로세스/메모리/네트워크를 관리하는 핵심 역할을 한다.
+
+로드 밸런서(Load Balancer)는 서버로 들어오는 트래픽을 여러 서버에 분산하여 
+부하를 조절하는 역할을 하는 네트워크 장치 또는 소프트웨어
+
+L4 로드 밸런서 (Layer 4)
+IP 주소와 포트(TCP/UDP)를 기준으로 트래픽을 분산
+
+L7 로드 밸런서 (Layer 7)
+HTTP, HTTPS 기반으로 URL, 쿠키, HTTP 헤더를 분석하여 트래픽을 분산
+
+Pod는 쿠버네티스(Kubernetes)에서 컨테이너를 실행하는 가장 작은 배포 단위이다. 
+
+Canary 배포는 점진적 배포 전략(Gradual Deployment Strategy) 중 하나로, 새로운 버전이 전체 시스템에 영향을 주지 않도록
+ 일부 사용자에게만 먼저 배포하고 검증 후 확장한다.
+
+블루-그린 배포(Blue-Green Deployment)는 새로운 버전(그린, Green)을 배포한 후, 
+기존 버전(블루, Blue)과 즉시 전환하는 배포 전략이다.
+
+DevOps의 핵심 도구
+
+CI/CD	                                         Jenkins, GitHub Actions, GitLab CI/CD, CircleCI
+컨테이너 & 오케스트레이션	             Docker, Kubernetes, Helm
+인프라 자동화	                           Terraform, Ansible, AWS CloudFormation
+모니터링 & 로깅	                           Prometheus, Grafana, ELK Stack, Datadog
+소스 코드 관리(SCM)	             Git, GitHub, GitLab, Bitbucket
+
+Kafka는 대량의 데이터를 빠르게 처리하고 저장하는 분산 메시징 플랫폼
+마이크로서비스, 실시간 로그 처리, 빅데이터 분석 등에 사용
+RabbitMQ 같은 메시지 큐보다 빠르고 확장성이 뛰어나지만, 운영이 복잡할 수 있음
+
+Source DB(소스 데이터베이스)는 데이터를 생성하고 제공하는 데이터 원천(Source)이다.
+Sink DB(싱크 데이터베이스)는 Source DB에서 전송된 데이터를 저장하고 활용하는 목적지(Sink)이다.
+
+마이그레이션 점진적으로 조금씩 바꾸는 것 
