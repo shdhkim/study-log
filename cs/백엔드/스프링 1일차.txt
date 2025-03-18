@@ -1,0 +1,73 @@
+URI (Uniform Resource Identifier, 통합 자원 식별자)
+## URI (Uniform Resource Identifier, 통합 자원 식별자)
+인터넷에서 리소스(자원)를 식별하는 모든 문자열을 의미합니다. URL과 URN을 포함하는 더 넓은 개념입니다.
+
+**예시:** `https://example.com/page` (URL도 URI의 한 종류)
+
+---
+
+## URL (Uniform Resource Locator, 통합 자원 위치 지정자)
+리소스의 위치(주소)와 접근 방법(프로토콜)을 포함하는 URI의 한 종류입니다.
+웹에서 흔히 사용되는 형태입니다.
+
+**예시:** `https://example.com/page` (프로토콜: `https`, 도메인: `example.com`, 경로: `/page`)
+
+---
+
+## 웹 서버(Web Server)란?
+정적인 웹 페이지(HTML, CSS, JavaScript, 이미지 등)를 클라이언트(브라우저)에 제공하는 서버입니다.
+
+- HTTP 요청(Request)을 받아 정적인 응답(Response)을 반환합니다.
+- 동적인 데이터 처리 없이, 단순 파일 제공 역할을 수행합니다.
+
+### 주요 웹 서버 종류
+- **Apache HTTP Server (아파치)**
+- **Nginx (엔진엑스)**
+
+### 웹 서버 동작 방식
+1. 클라이언트(브라우저)가 `http://example.com/index.html` 요청
+2. 웹 서버(Apache/Nginx)가 요청을 받아 해당 HTML 파일을 반환
+3. 브라우저는 받은 HTML을 렌더링하여 화면에 표시
+
+---
+
+## WAS (Web Application Server)
+웹 애플리케이션을 실행하는 서버입니다. 
+
+- 웹 서버와 다르게 **비즈니스 로직 처리, 데이터베이스 연동, 세션 관리, API 실행** 등의 역할을 수행합니다.
+- 주로 **Servlet, JSP, Spring Boot** 같은 Java 기반 애플리케이션을 실행하는 데 사용됩니다.
+
+### 주요 WAS 종류
+- **Tomcat (아파치 톰캣)**
+- **JBoss(WildFly)**
+
+### WAS 동작 방식
+1. 클라이언트가 `http://example.com/login` 요청
+2. WAS가 요청을 받아, **Servlet 또는 Spring Controller**에서 요청을 처리
+3. 데이터베이스에서 필요한 데이터를 조회하여 가공
+4. 동적으로 HTML 페이지를 생성하여 응답 반환
+
+---
+
+## EJB (Enterprise JavaBeans)
+
+EJB는 J2EE(Java EE, 현재는 Jakarta EE)에서 엔터프라이즈 애플리케이션을 위한 서버 측 컴포넌트입니다.
+
+- **트랜잭션 관리, 보안, 분산 처리, 비즈니스 로직 구현** 등을 담당합니다.
+- 보통 **WAS (예: JBoss, WebLogic, GlassFish)**에서 실행됩니다.
+
+---
+
+## ORM (Object-Relational Mapping)
+객체 지향 프로그래밍(OOP)과 관계형 데이터베이스(RDB)를 매핑하는 기술입니다.
+
+- SQL을 직접 작성하지 않고 **객체(Entity)와 테이블을 자동으로 연결**합니다.
+- 주로 **JPA (Java Persistence API), Hibernate, EclipseLink** 등의 프레임워크를 사용합니다.
+
+---
+
+## IoC (Inversion of Control, 제어의 역전)
+IoC는 **객체의 생성, 생명주기 관리, 의존성 주입을 개발자가 직접 하지 않고 프레임워크나 컨테이너가 대신 처리하는 개념**입니다.
+
+- 즉, 객체의 생성과 의존성 관리를 직접 하지 않고 **외부에서 주입하는 방식**으로 애플리케이션을 구성합니다.
+- **Spring 프레임워크**를 포함한 여러 Java EE 기술에서 IoC 컨테이너를 사용하여 객체의 생성을 자동화합니다.
