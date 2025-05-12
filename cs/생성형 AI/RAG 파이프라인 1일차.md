@@ -84,7 +84,7 @@
 
 ---
 
-# 🔍 Advanced RAG Variants Overview - 상세 설명
+# 🔍 Advanced RAG Variants Overview 
 
 ---
 
