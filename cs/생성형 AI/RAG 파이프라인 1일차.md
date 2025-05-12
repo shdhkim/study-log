@@ -94,7 +94,7 @@
 
 * **논문**: *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks* (2020)
 * **기관**: Facebook AI Research (FAIR)
-
+* **링크**: [논문 보기](https://arxiv.org/pdf/2005.11401) 
 #### 🔍 설명
 
 Naive-RAG는 최초로 등장한 RAG 모델로, 지식이 필요한 NLP 작업에 적합하도록 설계되었습니다. 기존의 단순한 문장 생성 방식이나 단순 검색 기반 질의응답 시스템의 한계를 극복하기 위해 도입되었습니다.
@@ -120,7 +120,7 @@ Naive-RAG는 최초로 등장한 RAG 모델로, 지식이 필요한 NLP 작업�
 
 * **논문**: *Retrieval-Augmented Generation for Large Language Models: A Survey* (2023.12)
 * **기관**: Tongji University
-
+* **링크**: [논문 보기](https://arxiv.org/pdf/2312.10997)
 #### 🔍 설명
 
 Advanced-RAG는 Naive-RAG보다 한 단계 발전된 구조로, 전체 RAG 시스템을 **검색(Retrieval) → 증강(Augmentation) → 생성(Generation)** 세 단계로 나누고 각 요소를 고도화합니다.
@@ -149,7 +149,7 @@ Advanced-RAG는 Naive-RAG보다 한 단계 발전된 구조로, 전체 RAG 시�
 
 * **논문**: *Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection* (2023.10)
 * **기관**: University of Washington, AI2, Amazon AWS AI
-
+* **링크**: [논문 보기](https://arxiv.org/pdf/2310.11511)
 #### 🔍 설명
 
 Self-RAG는 RAG 시스템의 고질적인 문제인 **hallucination**(사실과 다른 내용을 생성하는 오류)을 줄이기 위해 **자기 반성(self-reflection)** 개념을 도입합니다.
@@ -176,7 +176,7 @@ Self-RAG는 RAG 시스템의 고질적인 문제인 **hallucination**(사실과 
 
 * **논문**: *Corrective Retrieval-Augmented Generation* (2024.01)
 * **기관**: Google DeepMind
-
+* **링크**: [논문 보기](https://arxiv.org/pdf/2401.15884)
 #### 🔍 설명
 
 Corrective-RAG는 검색된 문서 자체가 **부정확하거나 부족할 수 있다**는 현실적인 문제를 해결하기 위해 고안된 프레임워크입니다.
@@ -202,7 +202,7 @@ Corrective-RAG는 검색된 문서 자체가 **부정확하거나 부족할 수 
 
 * **논문**: *Adaptive-RAG: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity* (2024.03)
 * **기관**: KAIST
-
+* **링크**: [논문 보기](https://arxiv.org/pdf/2403.14403)
 #### 🔍 설명
 
 Adaptive-RAG는 질문의 난이도(복잡도)에 따라 검색 전략을 **자동 조절**하는 프레임워크입니다. 모든 질문에 동일한 RAG 절차를 적용하는 기존 방식에서 벗어나 다음과 같이 구분합니다:
@@ -225,3 +225,75 @@ Adaptive-RAG는 질문의 난이도(복잡도)에 따라 검색 전략을 **자�
 * 다양한 난이도의 질문을 유연하게 대응할 수 있는 **지능형 검색 시스템 기반 제시**
 
 ---
+
+# 📘 RAG 구조적 진화: 최신 RAG 프레임워크 세 가지
+
+## 1. Graph RAG – 문서 집합을 지식 그래프로 구조화
+
+- **논문명**: From Local to Global: A Graph RAG Approach to Query-Focused Summarization  
+- **기관**: Microsoft (2024.04)  
+- **링크**: [논문 보기](https://arxiv.org/pdf/2404.16130)
+
+### 📌 주요 개념
+
+기존의 Naive RAG는 단순 임베딩 검색 기반이라서 "이 문서 전체에서 주제는 무엇인가?"와 같은 **전반적인 질문 처리에 한계**가 있었음. 이에 따라 Graph RAG는 문서 간의 **엔티티-관계 구조를 그래프로 표현**하고, 이를 바탕으로 요약 및 질의응답을 수행.
+
+### 🔧 핵심 구성
+
+- **지식 그래프 생성**: LLM을 활용하여 문서에서 엔티티(개체)와 관계를 추출하여 그래프 구조로 표현
+- **커뮤니티 요약**: 밀접하게 연결된 노드 군집을 ‘커뮤니티’로 식별하고, 각 커뮤니티 단위로 요약문을 생성
+- **질문 응답**: 사용자의 질문에 대해 관련된 커뮤니티의 요약을 활용해 부분 응답을 생성하고, 이를 종합하여 최종 응답 생성
+
+### 🧠 연구적 의의
+
+- 기존 청크 기반 검색에서 → **구조화된 지식 기반 Retrieval 방식**으로 전환
+- LLM을 단순 생성기가 아니라 **요약기 + 생성기** 역할로 확장
+- 엔터프라이즈 레벨에서 유용한 고차원 요약/응답 시스템 구현 가능성 제시
+
+---
+
+## 2. Modular RAG – 레고처럼 재구성 가능한 프레임워크
+
+- **논문명**: Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks  
+- **기관**: Shanghai Jiao Tong University, East China Normal University (2024.07)  
+- **링크**: [논문 보기](https://arxiv.org/pdf/2407.21059v1)
+
+### 📌 주요 개념
+
+RAG 시스템을 레고 블럭처럼 재구성 가능하게 만들자는 접근. **모듈, 하위 모듈, 연산자**로 구분해 복잡한 시스템을 유연하게 설계.
+
+### 🔧 핵심 구성
+
+1. **모듈 (Module)**: 검색, 인덱싱, 생성 등 RAG의 핵심 단계를 담당  
+2. **하위 모듈 (Sub-modules)**: 각 모듈 내의 세부 기능 (e.g., 쿼리 확장, 검색기 교체 등)
+3. **연산자 (Operators)**: 실제 연산 수행 (e.g., 슬라이딩 윈도우, 메타데이터 삽입)
+
+### 🧠 연구적 의의
+
+- **모듈화 설계**로 유지보수 및 교체 용이성 확보
+- **유연한 시스템 구성**으로 다양한 시나리오 대응 가능
+- **새 기술 도입과 성능 개선**을 손쉽게 수행
+
+---
+
+## 3. Agentic RAG – 에이전트 기반으로 도구 활용 확장
+
+- **논문명**: Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG  
+- **기관**: Cleveland State University, Roux Institute at Northeastern University (2025.01)  
+- **링크**: [논문 보기](https://arxiv.org/pdf/2501.09136)
+
+### 📌 주요 개념
+
+기존 RAG 시스템을 확장하여, **에이전트 기반**으로 작동하는 구조. 단순 질의응답을 넘어서 **계획, 도구 활용, 반성(reflection), 다중 에이전트 협업**이 가능한 시스템.
+
+### 🔧 핵심 구성
+
+- **동적 검색 전략**: 에이전트가 실시간으로 검색 전략을 수정하여 문맥에 최적화
+- **문맥 이해 개선**: 반복적 피드백 루프를 통해 문맥에 대한 이해도를 지속적으로 향상
+- **다중 에이전트 협업**: 역할 분담과 협업을 통해 복잡한 작업도 수행 가능
+
+### 🧠 연구적 의의
+
+- **자율성과 적응성**을 갖춘 RAG 시스템 설계 가능
+- **에이전트 패턴 활용**으로 복잡한 업무 자동화 가능 (예: 계획 수립, 반성, 도구 활용)
+- 의료, 금융 등 산업 분야에의 적용 가능성 시사
