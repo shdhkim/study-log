@@ -2,7 +2,7 @@
 
 ---
 
-## ✅ v-model (양방향 데이터 바인딩)
+## v-model (양방향 데이터 바인딩)
 
 ```vue
 <!-- v-model -->
@@ -22,7 +22,7 @@ const message = ref('초기값')
 
 ---
 
-## ✅ ref (원시 타입 반응형)
+## ref (원시 타입 반응형)
 
 ```vue
 <!-- ref -->
@@ -41,7 +41,7 @@ const count = ref(0)
 
 ---
 
-## ✅ reactive (객체 전체 반응형)
+## reactive (객체 전체 반응형)
 
 ```vue
 <!-- reactive -->
@@ -61,7 +61,7 @@ const state = reactive({
 
 ---
 
-## ✅ computed (계산된 속성)
+## computed (계산된 속성)
 
 ```vue
 <!-- computed (계산된 속성) -->
@@ -84,7 +84,7 @@ const fullName = computed(() => {
 
 ---
 
-## ✅ watch (값 변경 감지)
+## watch (값 변경 감지)
 
 ```vue
 <!-- watch (감시자) -->
