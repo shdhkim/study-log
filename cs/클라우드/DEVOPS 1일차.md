@@ -174,11 +174,11 @@ pipeline {
 
 ---
 
-# 📢 최종 정리
+#  최종 정리
 
-✅ Jenkins는 CI/CD 자동화 파이프라인의 중심 역할을 한다.  
-✅ Jenkinsfile을 통해 빌드, 테스트, 배포를 코드로 관리할 수 있다.  
-✅ Docker, Kubernetes, Prometheus와 연계하여 강력한 DevOps 환경을 구성할 수 있다.
+ Jenkins는 CI/CD 자동화 파이프라인의 중심 역할을 한다.  
+ Jenkinsfile을 통해 빌드, 테스트, 배포를 코드로 관리할 수 있다.  
+ Docker, Kubernetes, Prometheus와 연계하여 강력한 DevOps 환경을 구성할 수 있다.
 
 ---
 
